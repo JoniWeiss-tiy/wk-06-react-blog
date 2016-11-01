@@ -12,8 +12,7 @@
     "type": "git",
     "url": ""
   },
-  "author":
-    "Joni Weiss <me@joniweiss.com> (http://joniweiss.com)",
+  "author": "Joni Weiss <me@joniweiss.com> (http://joniweiss.com)",
   "license": "ISC",
   "bugs": {
     "url": ""
@@ -29,6 +28,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "json-loader": "^0.5.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   }
