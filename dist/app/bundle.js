@@ -21968,9 +21968,13 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _blogData = __webpack_require__(/*! ./blog-data.json */ 174);
+	var _Main = __webpack_require__(/*! ./Main */ 174);
 	
-	var _blogData2 = _interopRequireDefault(_blogData);
+	var _Main2 = _interopRequireDefault(_Main);
+	
+	var _Footer = __webpack_require__(/*! ./Footer */ 176);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21979,8 +21983,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	console.log(_blogData2.default);
 	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -21999,15 +22001,11 @@
 	        { className: 'container' },
 	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
-	          'h1',
+	          _Main2.default,
 	          null,
-	          'My Awesome Blog'
+	          'Main Section'
 	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          props.DATA[0].title
-	        )
+	        _react2.default.createElement(_Footer2.default, null)
 	      );
 	    }
 	  }]);
@@ -22059,7 +22057,7 @@
 	      return _react2.default.createElement(
 	        'h1',
 	        null,
-	        'My Awesome Blog'
+	        'Header'
 	      );
 	    }
 	  }]);
@@ -22071,6 +22069,89 @@
 
 /***/ },
 /* 174 */
+/*!************************************!*\
+  !*** ./src/app/components/Main.js ***!
+  \************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _blogData = __webpack_require__(/*! ./blog-data.json */ 175);
+	
+	var _blogData2 = _interopRequireDefault(_blogData);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	console.log("blogData: ", _blogData2.default[0].title);
+	console.log("blogData: ", _blogData2.default.length);
+	
+	var Main = function (_React$Component) {
+	  _inherits(Main, _React$Component);
+	
+	  function Main() {
+	    _classCallCheck(this, Main);
+	
+	    return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
+	  }
+	
+	  _createClass(Main, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Main section'
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          _blogData2.default[0].title
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          _blogData2.default[0].article
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          _blogData2.default[1].title
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          _blogData2.default[1].article
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Main;
+	}(_react2.default.Component);
+	
+	exports.default = Main;
+
+/***/ },
+/* 175 */
 /*!*******************************************!*\
   !*** ./src/app/components/blog-data.json ***!
   \*******************************************/
@@ -22078,17 +22159,75 @@
 
 	"use strict";
 	
-	[{
-	      "title": "A title",
-	      "posted": "2016-10-30Z08:30",
-	      "article": "This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
-	      "tags": ["pizza", "cheese"]
+	module.exports = [{
+		"id": 1,
+		"title": "A title",
+		"posted": "2016-10-30Z08:30",
+		"article": "This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
+		"tags": ["pizza", "cheese"]
 	}, {
-	      "title": "Another title",
-	      "posted": "2016-10-30Z09:30",
-	      "article": "This is another blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
-	      "tags": ["puppies", "kittens"]
+		"id": 2,
+		"title": "Another title",
+		"posted": "2016-10-30Z09:30",
+		"article": "This is another blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
+		"tags": ["puppies", "kittens"]
 	}];
+
+/***/ },
+/* 176 */
+/*!**************************************!*\
+  !*** ./src/app/components/Footer.js ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Footer = function (_React$Component) {
+	  _inherits(Footer, _React$Component);
+	
+	  function Footer() {
+	    _classCallCheck(this, Footer);
+	
+	    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+	  }
+	
+	  _createClass(Footer, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'footer',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Footer'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Footer;
+	}(_react2.default.Component);
+	
+	exports.default = Footer;
 
 /***/ }
 /******/ ]);

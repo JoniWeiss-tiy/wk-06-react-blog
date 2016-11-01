@@ -21,6 +21,11 @@ var config = {
         query: {
           presets: ["react", "es2015"]
         }
+      },
+      {
+        test: /\.json?/,
+        include: SRC_DIR,
+        loader: "json-loader"
       }
     ]
   }
