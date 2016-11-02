@@ -2,14 +2,33 @@
   {
     "id" : 1,
     "title" : "A title",
-    "posted" : "2016-10-30Z08:30",
+    "posted" : {
+      "year" : "2016",
+      "month" : "October",
+      "day" : "13th"
+    },
     "article" : "This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
     "tags" : ["pizza", "cheese"]
   },
   {
     "id" : 2,
     "title" : "Another title",
-    "posted" : "2016-10-30Z09:30",
+    "posted" : {
+      "year" : "2016",
+      "month" : "October",
+      "day" : "3rd"
+    },
+    "article" : "This is another blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
+    "tags" : ["puppies", "kittens"]
+  },
+  {
+    "id" : 3,
+    "title" : "And yet another title",
+    "posted" : {
+      "year" : "2016",
+      "month" : "September",
+      "day" : "22nd"
+    },
     "article" : "This is another blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. This is a blog entry.. ",
     "tags" : ["puppies", "kittens"]
   }

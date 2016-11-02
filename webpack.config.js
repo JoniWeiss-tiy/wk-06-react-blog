@@ -23,12 +23,25 @@ var config = {
         }
       },
       {
-        test: /\.json?/,
-        include: SRC_DIR,
-        loader: "json-loader"
+        test: /\.css$/,
+        loader: "style!css"
+      },
+      {
+        test: /\.sass$/,
+        loaders: ["style", "css", "sass"]
+      },
+      {
+        test: /\.json$/,
+        loader: "json"
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      'React':     'react'
+    })
+  ],
 };
 
 module.exports = config;

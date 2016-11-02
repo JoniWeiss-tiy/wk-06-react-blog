@@ -1,11 +1,16 @@
 'use strict';
 
-import React from 'react';
+import headerSass from './Header.sass';
 
 export default class Header extends React.Component {
   render () {
     return(
-      <h1>Header</h1>
+      <header>
+        <div className="div--img">
+          <img className="logo" src="./images/purple-lotus-flower.png" alt="logo" />
+        </div>
+        <h1 className="header">HandMade Pixels</h1>
+      </header>
     );
   }
 }
