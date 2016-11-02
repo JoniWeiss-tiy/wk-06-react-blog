@@ -1,5 +1,7 @@
 'use strict';
 
+import React from 'react';
+
 import { Scrollbars } from 'react-custom-scrollbars';
 import blogData from './blog-data.json';
 import MainSass from './Main.sass';

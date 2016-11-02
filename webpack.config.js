@@ -31,17 +31,26 @@ var config = {
         loaders: ["style", "css", "sass"]
       },
       {
+        test: /\.(jpe?g|png|gif|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+        loader: 'file-loader?name=[path][name].[ext]?[hash:10]',
+         exclude: /(node_modules|bower_components)/
+      },
+      {
         test: /\.json$/,
         loader: "json"
       }
     ]
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.ProvidePlugin({
-      'React':     'react'
-    })
-  ],
+  plugins: debug ? [] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({})
+  ]
 };
 
 module.exports = config;
