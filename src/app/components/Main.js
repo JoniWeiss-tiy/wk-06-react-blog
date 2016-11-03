@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-// import { Scrollbars } from 'react-custom-scrollbars';
 import blogData from './blog-data.json';
 import MainSass from './Main.sass';
 
@@ -38,14 +37,3 @@ export default class Main extends React.Component {
     );
   }
 }
-
-
-
-// <Scrollbars
-//   autoHide
-// autoHideTimeout={1000}
-// autoHideDuration={200}
-// autoHeight
-// autoHeightMin={100}
-// autoHeightMax={310}>
-// </Scrollbars>
