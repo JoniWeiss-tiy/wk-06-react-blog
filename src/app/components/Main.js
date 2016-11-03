@@ -2,21 +2,14 @@
 
 import React from 'react';
 
-import { Scrollbars } from 'react-custom-scrollbars';
+// import { Scrollbars } from 'react-custom-scrollbars';
 import blogData from './blog-data.json';
 import MainSass from './Main.sass';
 
 export default class Main extends React.Component {
   render () {
     return(
-      <div className="main">
-        <Scrollbars
-          autoHide
-        autoHideTimeout={1000}
-        autoHideDuration={200}
-        autoHeight
-        autoHeightMin={100}
-        autoHeightMax={310}>
+        <div className="main">
         <h2>Main section</h2>
         <h3 className="entry-title">
           {blogData[0].title}
@@ -41,8 +34,18 @@ export default class Main extends React.Component {
           {blogData[2].posted.month} {blogData[2].posted.day}, {blogData[2].posted.year}<br />
           {blogData[2].article}
         </p>
-      </Scrollbars>
       </div>
     );
   }
 }
+
+
+
+// <Scrollbars
+//   autoHide
+// autoHideTimeout={1000}
+// autoHideDuration={200}
+// autoHeight
+// autoHeightMin={100}
+// autoHeightMax={310}>
+// </Scrollbars>
