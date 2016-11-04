@@ -4,9 +4,12 @@
   "description": "Assignment for week six",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "webpack -d && cp src/index.html dist/index.html && cp -R src/app/images dist/app && webpack-dev-server --content-base src/ --inline --hot",
-    "postinstall": "webpack -p && cp src/index.html dist/index.html && cp -R src/app/images dist/app"
+    "webpack:dev": "webpack -d",
+    "copy": "cp src/index.html dist/index.html && cp -R src/app/images dist/app",
+    "dev": "npm run webpack:dev && npm run copy && webpack-dev-server --content-base src/ --inline --hot",
+    "dev:start": "npm run webpack:dev && npm run copy && npm start",
+    "postinstall": "webpack -p && npm run copy",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
