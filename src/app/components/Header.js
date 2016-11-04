@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import headerSass from './Header.sass';
+import headerSass from './_Header.sass';
 
 export default class Header extends React.Component {
   render () {
