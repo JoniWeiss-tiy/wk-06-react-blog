@@ -1,0 +1,13 @@
+[
+  {
+    "entryID" : 0,
+    "title" : "title",
+    "posted" : {
+      "year" : "2016",
+      "month" : "month",
+      "day" : "13th"
+    },
+    "article" : [""],
+    "tags" : ["Programming", "Software Development", "Web Development", "Front End Development", "Women in Tech"]
+  },
+]
