@@ -11,29 +11,18 @@ export default class Main extends React.Component {
     return(
       <div className="main">
         <h2>Main section</h2>
-        <h3 className="entry-title">
-          {this.props.data[0].title}
-        </h3>
-        <p className="entry-article">
-          {this.props.data[0].posted.month} {this.props.data[0].posted.day}, {this.props.data[0].posted.year}<br />
-        </p>
-        <ArticleContent data={this.props.data[0].article} />
-
-        <h3 className="entry-title">
-          {this.props.data[1].title}
-        </h3>
-        <p className="entry-article">
-          {this.props.data[1].posted.month} {this.props.data[1].posted.day}, {this.props.data[1].posted.year}<br />
-        </p>
-        <ArticleContent data={this.props.data[1].article} />
-
-        <h3 className="entry-title">
-          {this.props.data[2].title}
-        </h3>
-        <p className="entry-article">
-          {this.props.data[2].posted.month} {this.props.data[2].posted.day}, {this.props.data[2].posted.year}<br />
-        </p>
-        <ArticleContent data={this.props.data[2].article} />
+        {this.props.data.map((entry, idx) => {
+          console.log(entry.title);
+          return (<div key={idx}>
+                    <h3 className="entry-title">
+                      {entry.title}
+                    </h3>
+                    <p className="entry-article">
+                      {entry.posted.month} {entry.posted.day}, {entry.posted.year}<br />
+                    </p>
+                    <ArticleContent data={entry.article} />
+                  </div>)
+        })}
       </div>
     );
   }

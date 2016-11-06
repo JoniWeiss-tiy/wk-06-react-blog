@@ -38,9 +38,11 @@ export default class App extends React.Component {
     super();
     this.state = {
       data: blogData,
-      searchStr: '',
       monthList: monthList,
       tagList: tagList,
+      searchStr: '',
+      selectByType: '',
+      selectByValue: '',
       selectedMonth: ''
     };
   }
