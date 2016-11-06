@@ -12,18 +12,29 @@ import AppSass from './App.sass';
 import blogData from './blog-data.json';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      data: blogData
-    }
+      data: blogData,
+      searchStr: "search string"
+    };
   }
+
+  onSetSearchStr (str) {
+    this.setState({
+      searchStr: str
+    });
+  }
+
   render () {
     return (
       <div className='container'>
         <Header />
         <div className="content">
-          <Sidebar data={this.state.data} />
+          <Sidebar
+            data={this.state.data}
+            setSearchStr={this.onSetSearchStr.bind(this)}
+            defaultSearchStr={this.state.searchStr} />
           <Main data={this.state.data} />
         </div>
         <Footer />

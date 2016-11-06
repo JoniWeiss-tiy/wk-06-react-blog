@@ -19,8 +19,8 @@ var config = {
         include: SRC_DIR,
         loader: "babel-loader",
         query: {
-          presets: ["react", "es2015"]
-        }
+           presets: ['react', 'es2015']
+       }
       },
       {
         test: /\.css$/,
@@ -41,7 +41,10 @@ var config = {
       }
     ]
   },
-  plugins: debug ? [] : [
+  plugins: debug ? [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({'React': 'react'})
+  ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.DefinePlugin({
@@ -49,7 +52,9 @@ var config = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({})
+    new webpack.optimize.UglifyJsPlugin({}),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({'React': 'react'})
   ]
 };
 
