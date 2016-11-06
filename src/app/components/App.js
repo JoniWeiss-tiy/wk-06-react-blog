@@ -11,12 +11,37 @@ import AppSass from './App.sass';
 
 import blogData from './blog-data.json';
 
+// Generate a list array of unique month names
+// from blogData entries.
+const monthList = blogData.map(function(entry, idx) {
+  return entry.posted.month;
+})
+.reduce(function(p, c)
+{
+  if (p.indexOf(c) < 0) p.push(c);
+  return p;
+}, []);
+
+const tagList = blogData.map(function(entry, idx) {
+  return entry.tags;
+})
+.reduce((a, b) => a.concat(b))
+.reduce(function(p, c)
+{
+  if (p.indexOf(c) < 0) p.push(c);
+  return p;
+}, [])
+.sort();
+
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
       data: blogData,
-      searchStr: "search string"
+      searchStr: "search string",
+      monthList: monthList,
+      tagList: tagList,
+      selectedMonth: ''
     };
   }
 
@@ -33,9 +58,14 @@ export default class App extends React.Component {
         <div className="content">
           <Sidebar
             data={this.state.data}
+            monthList={this.state.monthList}
+            tagList={this.state.tagList}
             setSearchStr={this.onSetSearchStr.bind(this)}
             defaultSearchStr={this.state.searchStr} />
-          <Main data={this.state.data} />
+          <Main
+            data={this.state.data}
+            selectedMonth={this.state.selectedMonth}
+            searchStr={this.state.searchStr}/>
         </div>
         <Footer />
       </div>
