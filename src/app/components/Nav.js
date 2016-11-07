@@ -8,6 +8,9 @@ export default class App extends React.Component {
   render() {
     return (
       <nav id="navigation">
+        <div id="logo">
+          <img src="app/images/purple-lotus-flower.png" alt="logo" />
+        </div>
         <ul>
           <li><a href="index.html" className="selected">Home</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
