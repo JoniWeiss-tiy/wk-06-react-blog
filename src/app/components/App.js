@@ -12,6 +12,7 @@ import About from './About';
 import ContactUs from './ContactUs';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import NotFound from './NotFound';
 
 import AppSass from './App.sass';
 
@@ -25,6 +26,7 @@ export default class App extends React.Component {
           <Match pattern='/portfolio' component={Portfolio}/>
           <Match pattern='/about' component={About}/>
           <Match pattern='/contact-us' component={ContactUs}/>
+          <Miss component={NotFound}/>
           <Footer />
         </div>
       </Router>

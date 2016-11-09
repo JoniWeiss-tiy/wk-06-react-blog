@@ -9,7 +9,7 @@
     "dev": "npm run webpack:dev && npm run copy && webpack-dev-server --content-base src/ --inline --hot",
     "dev:start": "npm run webpack:dev && npm run copy && npm start",
     "postinstall": "webpack -p && npm run copy",
-    "prod:start": "npm run postinstall && npm run copy && npm start",
+    "prod:start": "npm run postinstall && npm start",
     "start": "node server.js"
   },
   "repository": {
