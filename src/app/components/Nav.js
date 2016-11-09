@@ -10,7 +10,9 @@ export default class App extends React.Component {
     return (
       <nav id="navigation">
         <div id="logo">
-          <img src="app/images/purple-lotus-flower.png" alt="logo" />
+          <Link to='/'>
+            <img src="app/images/purple-lotus-flower.png" alt="logo" />  
+          </Link>
         </div>
         <ul>
           <li><Link to='/'>Home</Link></li>
