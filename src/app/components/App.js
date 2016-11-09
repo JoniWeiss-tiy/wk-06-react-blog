@@ -14,7 +14,7 @@ import blogData from './blog-data.json';
 // Generate a list array of unique month names
 // from blogData entries.
 const monthList = blogData.map(function(entry, idx) {
-  return entry.posted.month;
+  return entry.posted[1];
 })
 .reduce(function(p, c)
 {
@@ -22,6 +22,8 @@ const monthList = blogData.map(function(entry, idx) {
   return p;
 }, []);
 
+// Generate a list array of unique tag names
+// from blogData entries.
 const tagList = blogData.map(function(entry, idx) {
   return entry.tags;
 })
@@ -41,13 +43,39 @@ export default class App extends React.Component {
       monthList: monthList,
       tagList: tagList,
       searchStr: '',
-      selectByType: '',
-      selectByValue: '',
-      selectedMonth: ''
+      searchType: '',
+      searchValue: ''
     };
   }
 
+  setBlogData(stype, sval) {
+    let arr = [];
+    if (stype === "month") {
+      blogData.map(function(obj) {
+        if (obj.posted.includes(sval)) {
+          arr.push(obj);
+        }
+      })
+    } else if (stype === "tag") {
+      blogData.map(function(obj) {
+        if (obj.tags.includes(sval)) {
+          arr.push(obj);
+        }
+      })
+    }
+    return arr;
+  }
+
+  onSetSearch (stype, sval) {
+    this.setState({
+      searchType: stype,
+      searchValue: sval,
+      data: this.setBlogData(stype, sval)
+    });
+  }
+
   onSetSearchStr (str) {
+    console.log("str: ", str);
     this.setState({
       searchStr: str
     });
@@ -63,11 +91,15 @@ export default class App extends React.Component {
             monthList={this.state.monthList}
             tagList={this.state.tagList}
             setSearchStr={this.onSetSearchStr.bind(this)}
-            defaultSearchStr={this.state.searchStr} />
+            defaultSearchStr={this.state.searchStr}
+            defaultSearchType={this.state.searchType}
+            defaultSearchValue={this.state.searchValue}
+            setSearch={this.onSetSearch.bind(this)} />
           <Main
             data={this.state.data}
-            selectedMonth={this.state.selectedMonth}
-            searchStr={this.state.searchStr}/>
+            searchStr={this.state.searchStr}
+            searchType={this.state.searchType}
+            searchValue={this.state.searchValue}/>
         </div>
         <Footer />
       </div>

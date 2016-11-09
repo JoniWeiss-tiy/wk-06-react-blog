@@ -17,7 +17,9 @@ export default class Main extends React.Component {
                       {entry.title}<br /><br />
                     </h3>
                     <p className="entry-article">
-                      {entry.posted.month} {entry.posted.day}, {entry.posted.year}<br /><br />
+                      {entry.posted.map((val, idx) => {
+                        return <span key={idx}>{val} </span>
+                        })}<br /><br />
                     </p>
                     <ArticleContent data={entry.article} />
                     <p>Tags: {entry.tags.map((tag,idx) => {

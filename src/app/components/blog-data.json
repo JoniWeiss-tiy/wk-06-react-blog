@@ -2,11 +2,7 @@
   {
     "entryID" : 4,
     "title" : "Sass, Flexbox, Viewports and Responsive Design",
-    "posted" : {
-      "year" : "2016",
-      "month" : "November",
-      "day" : "5th"
-    },
+    "posted" : ["5", "November", "2016"],
     "article" : ["We expect a lot more from websites and web apps than we did 5 or 10 years ago. Today it is critical to think in terms of scale and responsiveness... to think in terms of the reality of mobile data bandwidth and screen sizes, resolutions, and viewport dimensions. Today there are very few sites that can get away with a one-size fits all design. We simply must think mobile when thinking of the view or presentation aspect of our web development projects.",
     "While we are allowed to make our own decisions regarding CSS frameworks we use for our projects at The Iron Yard, our instructor has presented FlexBox as an alternative to using a CSS framework like Bootstrap, Foundation, etc. It's true that each approach has a learning curve, but CSS3's FlexBox really makes me think more about how components on my webpages flow and how they respond to various screen sizes. I've worked with Bootstrap and Zurb's Foundation for over a year now, but FlexBox is rapidly growing on me and becoming my framework of choice for site layout. It's simple, relatively straight forward, and extremely light weight compared to any other option.",
     "Likewise, I've been learning to use Sass to style my projects. It's funny how I've avoided this for some time, and now that I'm using it, I can't imagine ever going back to simply using CSS except for very small projects. With Sass, I can create variables that can be reused throughout the site. Case in point:  Set the site's color palette using Sass variables, and BAM! you no longer have to think about the color codes for the rest of the site! If you want to change any one of those colors, you no longer have to search through CSS files for every single occurrence of the color -- simply make one change (the color assigned to the variable) and you're done.",
@@ -16,11 +12,7 @@
   {
     "entryID" : 3,
     "title" : "Six weeks in and all I want to do is keep learning...",
-    "posted" : {
-      "year" : "2016",
-      "month" : "November",
-      "day" : "5th"
-    },
+    "posted" : ["5", "November", "2016"],
     "article" : ["Half way through our 12-week journey @ The Iron Yard Front End Engineering coding Bootcamp. No lie: I am tired every single evening... exhausted. Spending 8 hours of every day monday through Friday (and then all weekend) moving between learning new concepts, libraries, and techniques, and then applying them in almost daily coding projects and/or exercises is downright grueling. Add to that the lack of a social life and no real free time for friends or family. This is hard.... damn hard. For the past few days I've been at my breaking point. I am struggling just to manage all the new knowledge rattling around in my head while learning the next new thing. This time, it's ReactJS, which I simply LOVE learning -- and also I am tired. Keep moving soldier. There are no breaks here... just more to learn and love. I love this work. I'm in this for the long haul. On we go...",
     "We started learning Facebook's React JS just over 1 week ago. At the same time, we're learning how to use Webpack, Sass, Babel, and app hosting via git to Heroku. But back to React...",
     "I like the way React breaks things down into components. If you don't think in terms of single function components, you can quickly get into a complicated mess with React's props and state objects, which work best in a functional programming paradigm. It becomes necessary to examine where information should flow from and what user actions or other events should trigger updates to the view, and how. It's no longer simply an exercise in creating a button here and an input field there, and then creating a few little functions to tie them together and make things happen on a page. It requires more organization of thought... and planning how information should flow throughout the app. Come to think of it: It's a change in thinking from thinking in websites to thinking in apps.",
@@ -31,11 +23,7 @@
   {
     "entryID" : 2,
     "title" : "Coding Boot-camp — Week 3",
-    "posted" : {
-      "year" : "2016",
-      "month" : "October",
-      "day" : "13th"
-    },
+    "posted" : ["13", "October", "2016"],
     "article" : ["So the first 2 weeks were wonderful. I am in a class/cohort with 9 fun, engaging peers who are all eager to learn javascript. I’ve learned a few awesome things every single day. And now we’re in our third week.",
     "Week three is where my mind is being blown. Every. Single. Day.",
     "I’ve learned some basic javascript before (codeacademy, freecodecamp, teamtreehouse, and a little back in college). I’ve heard programmers before mention things like 'callbacks', 'promises', and other terms before, but never having used them, I didn’t have the foggiest.",
@@ -50,11 +38,7 @@
   {
     "entryID" : 1,
     "title" : "Friday #2 at coding bootcamp. Already??",
-    "posted" : {
-      "year" : "2016",
-      "month" : "October",
-      "day" : "7th"
-    },
+    "posted" : ["7", "October", "2016"],
     "article" : ["I thought I knew HTML and CSS pretty well. I thought this part of coding bootcamp would be sort of a cakewalk. Okay so I know some stuff, but I now realize that my rate of learning pure CSS3 slowed dramatically when I started using CSS frameworks and libraries (Bootstrap, Foundation, Angular, etc).",
     "Yesterday we were formally introduced to the Flex Box model. Oh my god! This is SO AWESOME!. As a team, we mob programed the base layout for a new group project using flexbox. Not only were we learning some of the pros and cons of some mob programming methods, but we learned a bit of how powerful (and sometimes confusing) using flexbox can be.",
     "I went home feeling that, wow — this is why I am here. This is damned good training for someone like me. Yes, I am comfortable at the Mac/UNIX command line. I am comfortable in using coding editors (and learning new ones — and customizing them). I’m fairly comfortable with git and github. And I am fairly comfortable with BASIC HTML5 and CSS3, and how to find good documentation on elements of both that I haven’t used before (or haven’t used in some new way before). What is great about this training (for me) is that I am getting more experience in working with others, getting and giving help from/to one another, and working on code as a team.",
@@ -66,11 +50,7 @@
   {
     "entryID" : 0,
     "title" : "Ready for Week 2 — Joni’s Code Camp Chronicles…",
-    "posted" : {
-      "year" : "2016",
-      "month" : "October",
-      "day" : "2nd"
-    },
+    "posted" : ["2", "October", "2016"],
     "article" : ["I was pretty nervous about this. I mean, I just quit my job for this awesome opportunity to go through a 12-week intensive front end development boot camp. Pretty awesome… but being without an income for 3 months is pretty scary.",
     "Now that my first week is complete, I can say that this is where I belong, and I am so optimistic about where my present path is taking me. I can also see that the work I’ve put in on my own, by attending local meet ups and taking online courses with TeamTreeHouse, CodeAcademy, Lynda.com, SafariBooksOnline, and FreeCodeCamp over the past year and a half is paying off!",
     "So… aside from enjoying my first week: What did I learn? Well… a lot of little things here and there, and some major things as well. This first week we focused on HTML, CSS, and getting familiar with the command line, git and github… all things I’ve been familiar with and have been working with for a while now. But we’ve also been learning to help one another, collaborate, try Mob Programming (awesome btw), and (most importantly) to push ourselves more… to try — fail — try — succeed, and to keep working at understanding all the things!",
