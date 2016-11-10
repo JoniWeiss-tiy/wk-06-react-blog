@@ -6,7 +6,7 @@ export default class Portfolio extends React.Component {
   render() {
     return (
       <div>
-        <h1>Portfolio Page</h1>
+        <h2>Portfolio Page</h2>
       </div>
     )
   }

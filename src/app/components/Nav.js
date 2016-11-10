@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import NavSass from './_Nav.sass';
+import NavSass from '../styles/_Nav.sass';
 
 export default class App extends React.Component {
   render() {
@@ -11,7 +11,7 @@ export default class App extends React.Component {
       <nav id="navigation">
         <div id="logo">
           <Link to='/'>
-            <img src="app/images/purple-lotus-flower.png" alt="logo" />  
+            <img src="app/images/purple-lotus-flower.png" alt="logo" />
           </Link>
         </div>
         <ul>

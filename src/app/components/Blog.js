@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Sidebar from './Sidebar';
-import Main from './Main';
+import Content from './Content';
 
 import blogData from './blog-data.json';
 
@@ -29,7 +29,7 @@ const tagList = blogData.map(function(entry, idx) {
 }, [])
 .sort();
 
-export default class Home extends React.Component {
+export default class Main extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -86,7 +86,7 @@ export default class Home extends React.Component {
           defaultSearchType={this.state.searchType}
           defaultSearchValue={this.state.searchValue}
           setSearch={this.onSetSearch.bind(this)} />
-        <Main
+        <Content
           data={this.state.data}
           searchStr={this.state.searchStr}
           searchType={this.state.searchType}

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import SidebarSass from './_Sidebar.sass'
+import SidebarSass from '../styles/_Sidebar.sass'
 
 export default class Sidebar extends React.Component {
   constructor(props) {

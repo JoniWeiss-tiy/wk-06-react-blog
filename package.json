@@ -7,6 +7,7 @@
     "webpack:dev": "webpack -d",
     "copy": "cp src/index.html dist/index.html && cp -R src/app/images dist/app",
     "dev": "npm run webpack:dev && npm run copy && webpack-dev-server --content-base src/ --inline --hot",
+    "dev:no-hot": "npm run webpack:dev && npm run copy && webpack-dev-server --content-base src/ --inline",
     "dev:start": "npm run webpack:dev && npm run copy && npm start",
     "postinstall": "webpack -p && npm run copy",
     "prod:start": "npm run postinstall && npm start",

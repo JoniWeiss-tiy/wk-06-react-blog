@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import headerSass from './_Header.sass';
+import headerSass from '../styles/_Header.sass';
 
 import Nav from './Nav.js';
 
