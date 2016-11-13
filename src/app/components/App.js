@@ -12,7 +12,7 @@ import About from './About';
 import ContactUs from './ContactUs';
 import NotFound from './NotFound';
 
-import AppSass from '../styles/App.sass';
+import AppSass from './App.sass';
 
 export default class App extends React.Component {
   render () {

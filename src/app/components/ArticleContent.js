@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import ArticleSass from '../styles/_Content.sass';
-
 export default class ArticleContent extends React.Component {
   render () {
     return(

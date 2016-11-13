@@ -4,8 +4,6 @@ import React from 'react';
 
 import ArticleContent from './ArticleContent';
 
-import ContentSass from '../styles/_Content.sass';
-
 export default class Content extends React.Component {
   render () {
     return(

@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import headerSass from '../styles/_Header.sass';
-
 import Nav from './Nav.js';
 
 export default class Header extends React.Component {
