@@ -21,7 +21,7 @@ export default class Content extends React.Component {
                     </p>
                     <ArticleContent data={entry.article} />
                     <p>Tags: {entry.tags.map((tag,idx) => {
-                        return <button key={idx}>{tag}</button>
+                        return <span key={idx}>[{tag}] </span>
                       })}</p>
                     <p>&nbsp;</p>
                     <hr />

@@ -36,7 +36,7 @@ export default class Sidebar extends React.Component {
     return(
       <div className="sidebar">
         <h2>Sidebar</h2>
-        <h3>Search</h3>
+        {/* <h3>Search</h3>
         <input type="text"
           defaultValue={this.props.defaultSearchStr} onChange={(event) => this.onHandleSearch(event) }>
         </input>
@@ -44,7 +44,7 @@ export default class Sidebar extends React.Component {
           onClick={this.onSearch.bind(this)}>
           Search
         </button>
-      <br /><br /><hr />
+      <br /><br /><hr /> */}
 
         <h3>Months</h3>
         {this.props.monthList.map((month, idx) => {
