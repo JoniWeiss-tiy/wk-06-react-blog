@@ -7,6 +7,8 @@ import { Link } from 'react-router';
 export default class App extends React.Component {
 
   render() {
+    // Navigation menu responsiveness
+    // for small screens
     $(document).ready(function() {
       $('.menu').click(function(){
         $('.menu-items').slideDown(400, function(){
@@ -20,7 +22,7 @@ export default class App extends React.Component {
       var windowsize = $(window).width();
       if (windowsize > 480) {
         $(".menu-items").css("display","inline-block");
-      } else {
+      } else if (windowsize <= 480) {
         $(".menu-items").css("display","none");
       }
     });﻿

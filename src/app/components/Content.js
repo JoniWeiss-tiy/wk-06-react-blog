@@ -32,9 +32,3 @@ export default class Content extends React.Component {
     );
   }
 }
-
-
-
-// {entry.tags.map(function(tag, idx) {
-//   return <p key={idx}>{tag}</p>
-// })}

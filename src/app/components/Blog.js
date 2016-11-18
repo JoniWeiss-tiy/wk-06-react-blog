@@ -3,31 +3,11 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import Content from './Content';
 
-import blogData from './blog-data.json';
+import * as firebase from 'firebase';
 
-// Generate a list array of unique month names
-// from blogData entries.
-const monthList = blogData.map(function(entry, idx) {
-  return entry.posted[1];
-})
-.reduce(function(p, c)
-{
-  if (p.indexOf(c) < 0) p.push(c);
-  return p;
-}, []);
-
-// Generate a list array of unique tag names
-// from blogData entries.
-const tagList = blogData.map(function(entry, idx) {
-  return entry.tags;
-})
-.reduce((a, b) => a.concat(b))
-.reduce(function(p, c)
-{
-  if (p.indexOf(c) < 0) p.push(c);
-  return p;
-}, [])
-.sort();
+let blogData = [];
+let monthList = [];
+let tagList = [];
 
 export default class Main extends React.Component {
   constructor() {
@@ -42,21 +22,47 @@ export default class Main extends React.Component {
     };
   }
 
+  componentWillMount (){
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyChSy1WLxdHeYsroAvYElXsOYvkLyEufZE",
+      authDomain: "joni-weiss-blog.firebaseapp.com",
+      databaseURL: "https://joni-weiss-blog.firebaseio.com",
+      storageBucket: "joni-weiss-blog.appspot.com",
+      messagingSenderId: "1015106403880"
+    };
+    firebase.initializeApp(config);
+
+    const fbObjRef = firebase.database().ref().child('blogData');
+
+
+    fbObjRef.on("child_added", function (snapshot) {
+      blogData.push(snapshot.val());
+      monthList.push(snapshot.val().posted[1]);
+      tagList.push(snapshot.val().tags);
+    })
+    console.log("blogData: ", blogData);
+    console.log("monthList: ", monthList);
+    console.log("tagList: ", tagList);
+
+    this.setState({
+      data: blogData,
+      monthList: monthList,
+      tagList: tagList
+    });
+  }
+
+  componentWillUnmount () {
+    this.fbObjRef.off();
+  }
+
   setBlogData(stype, sval) {
     let arr = [];
-    if (stype === "month") {
-      blogData.map(function(obj) {
-        if (obj.posted.includes(sval)) {
-          arr.push(obj);
-        }
-      })
-    } else if (stype === "tag") {
-      blogData.map(function(obj) {
-        if (obj.tags.includes(sval)) {
-          arr.push(obj);
-        }
-      })
-    }
+    blogData.map(function(obj) {
+      if (obj.stype.includes(sval)) {
+        arr.push(obj);
+      }
+    })
     return arr;
   }
 
@@ -74,9 +80,12 @@ export default class Main extends React.Component {
       searchStr: str
     });
   }
+
+
   render() {
     return (
       <div className="content">
+        <div id="htmlObject"></div>
         <Sidebar
           data={this.state.data}
           monthList={this.state.monthList}

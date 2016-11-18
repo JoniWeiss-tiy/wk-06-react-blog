@@ -31,8 +31,9 @@ export default class Sidebar extends React.Component {
     this.props.setSearch(event.target.name, event.target.id)
   }
 
-
   render () {
+    console.log("this.props.monthList: ", this.props.monthList);
+    console.log("this.props.tagList: ", this.props.tagList);
     return(
       <div className="sidebar">
         <h2>Sidebar</h2>
