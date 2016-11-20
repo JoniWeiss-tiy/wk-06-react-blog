@@ -6,7 +6,8 @@ export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      monthList: this.props.monthList,
+      monthArr: this.props.monthArr,
+      tagArr: this.props.tagArr,
       searchStr: this.props.defaultSearchStr,
       searchType: this.props.defaultSearchType,
       searchValue: this.props.defaultSearchValue
@@ -32,11 +33,13 @@ export default class Sidebar extends React.Component {
   }
 
   render () {
-    console.log("this.props.monthList: ", this.props.monthList);
-    console.log("this.props.tagList: ", this.props.tagList);
+    console.log("Sidebar-data: ", this.props.data);
+    console.log("Sidebar-monthArr: ", this.props.monthArr);
+    console.log("Sidebar-tagArr: ", this.props.tagArr);
     return(
       <div className="sidebar">
         <h2>Sidebar</h2>
+        <p>Hel{this.props.tagArr}lo</p>
         {/* <h3>Search</h3>
         <input type="text"
           defaultValue={this.props.defaultSearchStr} onChange={(event) => this.onHandleSearch(event) }>
@@ -48,7 +51,7 @@ export default class Sidebar extends React.Component {
       <br /><br /><hr /> */}
 
         <h3>Months</h3>
-        {this.props.monthList.map((month, idx) => {
+        {this.props.monthArr.map((month, idx) => {
           return  <div key={idx}>
                     <button
                       id={month}
@@ -58,7 +61,7 @@ export default class Sidebar extends React.Component {
         })}
 
         <h3>Tags</h3>
-        {this.props.tagList.map((tag, idx) => {
+        {this.props.tagArr.map((tag, idx) => {
           return  <div key={idx}>
                     <button
                       id={tag}

@@ -5,24 +5,26 @@ import Content from './Content';
 
 import * as firebase from 'firebase';
 
-let blogData = [];
-let monthList = [];
-let tagList = [];
+import _ from 'lodash';
+
+let blogData = [],
+    monthArr = [],
+    tagArr = [];
 
 export default class Main extends React.Component {
   constructor() {
     super();
     this.state = {
       data: blogData,
-      monthList: monthList,
-      tagList: tagList,
+      monthArr: [],
+      tagArr: [],
       searchStr: '',
       searchType: '',
       searchValue: ''
     };
   }
 
-  componentWillMount (){
+  componentDidMount (){
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyChSy1WLxdHeYsroAvYElXsOYvkLyEufZE",
@@ -35,20 +37,20 @@ export default class Main extends React.Component {
 
     const fbObjRef = firebase.database().ref().child('blogData');
 
-
+    // Add DB Objects to
     fbObjRef.on("child_added", function (snapshot) {
-      blogData.push(snapshot.val());
-      monthList.push(snapshot.val().posted[1]);
-      tagList.push(snapshot.val().tags);
+      const snapVal = snapshot.val();
+      blogData.push(snapVal);
+      monthArr.push(snapVal.posted[1]);
+      snapVal.tags.forEach(function(tag) {
+        tagArr.push(tag);
+      });
     })
-    console.log("blogData: ", blogData);
-    console.log("monthList: ", monthList);
-    console.log("tagList: ", tagList);
 
     this.setState({
       data: blogData,
-      monthList: monthList,
-      tagList: tagList
+      monthArr: monthArr,
+      tagArr: tagArr
     });
   }
 
@@ -75,21 +77,20 @@ export default class Main extends React.Component {
   }
 
   onSetSearchStr (str) {
-    console.log("str: ", str);
     this.setState({
       searchStr: str
     });
   }
 
-
   render() {
     return (
       <div className="content">
         <div id="htmlObject"></div>
+        <p>{this.state.monthArr}</p>
         <Sidebar
           data={this.state.data}
-          monthList={this.state.monthList}
-          tagList={this.state.tagList}
+          monthArr={this.state.monthArr}
+          tagArr={this.state.tagArr}
           setSearchStr={this.onSetSearchStr.bind(this)}
           defaultSearchStr={this.state.searchStr}
           defaultSearchType={this.state.searchType}
