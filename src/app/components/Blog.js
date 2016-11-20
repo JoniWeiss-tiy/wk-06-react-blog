@@ -46,7 +46,7 @@ export default class Main extends React.Component {
     };
   }
 
-  componentWillMount (blogObj, blogId){
+  componentWillMount (){
     // Add DB Objects to
     this.fbObjRef = fbRef.child('blogData');
     this.fbObjRef.on("child_added", (snapshot) => {
