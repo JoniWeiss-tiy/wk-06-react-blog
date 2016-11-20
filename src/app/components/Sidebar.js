@@ -2,6 +2,16 @@
 
 import React from 'react';
 
+const rmvDups = (arr) => {
+  let newArr = [];
+  arr.map( function(item){
+    if (newArr.indexOf(item) === -1) {
+      newArr.push(item);
+    }
+  } )
+  return newArr;
+};
+
 export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -33,13 +43,11 @@ export default class Sidebar extends React.Component {
   }
 
   render () {
-    console.log("Sidebar-data: ", this.props.data);
-    console.log("Sidebar-monthArr: ", this.props.monthArr);
-    console.log("Sidebar-tagArr: ", this.props.tagArr);
+    let monthArr = rmvDups(this.props.monthArr);
+    let tagArr = rmvDups(this.props.tagArr);
     return(
       <div className="sidebar">
         <h2>Sidebar</h2>
-        <p>Hel{this.props.tagArr}lo</p>
         {/* <h3>Search</h3>
         <input type="text"
           defaultValue={this.props.defaultSearchStr} onChange={(event) => this.onHandleSearch(event) }>
@@ -51,7 +59,7 @@ export default class Sidebar extends React.Component {
       <br /><br /><hr /> */}
 
         <h3>Months</h3>
-        {this.props.monthArr.map((month, idx) => {
+        {monthArr.map((month, idx) => {
           return  <div key={idx}>
                     <button
                       id={month}
@@ -61,7 +69,7 @@ export default class Sidebar extends React.Component {
         })}
 
         <h3>Tags</h3>
-        {this.props.tagArr.map((tag, idx) => {
+        {tagArr.map((tag, idx) => {
           return  <div key={idx}>
                     <button
                       id={tag}
