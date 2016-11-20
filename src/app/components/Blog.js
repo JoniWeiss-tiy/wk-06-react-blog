@@ -5,6 +5,13 @@ import Content from './Content';
 
 import * as firebase from 'firebase';
 
+/*************************************************/
+/*************************************************/
+/*************************************************/
+/****** Uncomment ONE of these data sources  *****/
+// *** Local data for demo purposes:
+// import blogData from '../data/joni-weiss-blog.json';
+// *** Firebase data source for production
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyChSy1WLxdHeYsroAvYElXsOYvkLyEufZE",
@@ -14,10 +21,11 @@ var config = {
   messagingSenderId: "1015106403880"
 };
 firebase.initializeApp(config);
-
 const fbRef = firebase.database().ref();
-
 const fbObjRef = fbRef.child('blogData');
+/*************************************************/
+/*************************************************/
+/*************************************************/
 
 import _ from 'lodash';
 
@@ -37,6 +45,7 @@ export default class Main extends React.Component {
   constructor() {
     super();
     this.state = {
+      fbData: blogData,
       data: blogData,
       monthArr: [],
       tagArr: [],
@@ -52,12 +61,21 @@ export default class Main extends React.Component {
     this.fbObjRef.on("child_added", (snapshot) => {
       updateBlog(snapshot.val(), snapshot.key);
       this.setState({
+        fbData: blogData,
         data: blogData,
         monthArr: monthArr,
         tagArr: tagArr
       });
     }).bind(this)
 
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    this.fbObjRef.push({
+      post: this.state.post
+    });
+    this.setState({post: {}});
   }
 
 
@@ -68,8 +86,9 @@ export default class Main extends React.Component {
 
   setBlogData(stype, sval) {
     let arr = [];
-    blogData.map(function(obj) {
-      if (obj.stype.includes(sval)) {
+    this.state.fbData.map(function(obj) {
+      console.log("blogData.map: ", obj[stype]);
+      if (obj[stype].includes(sval)) {
         arr.push(obj);
       }
     })
@@ -93,7 +112,6 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="content">
-        <div id="htmlObject"></div>
         <Sidebar
           data={this.state.data}
           monthArr={this.state.monthArr}

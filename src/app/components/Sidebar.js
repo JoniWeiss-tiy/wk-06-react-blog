@@ -35,6 +35,7 @@ export default class Sidebar extends React.Component {
   }
 
   onClickSelect(event) {
+    console.log("event.target: ", event.target);
     this.setState({
       searchType: event.target.name,
       searchValue: event.target.id
@@ -63,7 +64,7 @@ export default class Sidebar extends React.Component {
           return  <div key={idx}>
                     <button
                       id={month}
-                      name="month"
+                      name="posted"
                       onClick={this.onClickSelect.bind(this)}>{month}</button><br/>
                   </div>
         })}
@@ -73,7 +74,7 @@ export default class Sidebar extends React.Component {
           return  <div key={idx}>
                     <button
                       id={tag}
-                      name="tag"
+                      name="tags"
                       onClick={this.onClickSelect.bind(this)}>{tag}</button><br/>
                   </div>
         })}
