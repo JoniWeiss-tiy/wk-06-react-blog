@@ -5,6 +5,10 @@ import Content from './Content';
 
 import * as firebase from 'firebase';
 
+// import * as Rebase from 're-base';
+
+import * as moment from 'moment';
+
 /*************************************************/
 /*************************************************/
 /*************************************************/
@@ -31,11 +35,13 @@ import _ from 'lodash';
 
 let blogData = [],
     monthArr = [],
-    tagArr = [];
+    tagArr = [],
+    datesArr = [];
 
 function updateBlog(entryVal, entryKey) {
   blogData.push(entryVal);
   monthArr.push(entryVal.posted[1]);
+  datesArr.push(entryVal.posted);
   entryVal.tags.forEach(function(tag) {
     tagArr.push(tag);
   });
@@ -48,6 +54,7 @@ export default class Main extends React.Component {
       fbData: blogData,
       data: blogData,
       monthArr: [],
+      datesArr: [],
       tagArr: [],
       searchStr: '',
       searchType: '',
@@ -64,6 +71,7 @@ export default class Main extends React.Component {
         fbData: blogData,
         data: blogData,
         monthArr: monthArr,
+        datesArr: datesArr,
         tagArr: tagArr
       });
     }).bind(this)
@@ -78,16 +86,16 @@ export default class Main extends React.Component {
     this.setState({post: {}});
   }
 
-
   componentWillUnmount () {
     this.fbObjRef.off();
   }
 
-
   setBlogData(stype, sval) {
+    if (stype === "reset") {
+      return this.state.fbData;
+    }
     let arr = [];
     this.state.fbData.map(function(obj) {
-      console.log("blogData.map: ", obj[stype]);
       if (obj[stype].includes(sval)) {
         arr.push(obj);
       }
@@ -108,6 +116,7 @@ export default class Main extends React.Component {
       searchStr: str
     });
   }
+
 
   render() {
     return (
