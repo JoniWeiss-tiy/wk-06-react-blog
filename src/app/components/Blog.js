@@ -47,7 +47,7 @@ function updateBlog(entryVal, entryKey) {
   });
 }
 
-export default class Main extends React.Component {
+export default class Blog extends React.Component {
   constructor() {
     super();
     this.state = {

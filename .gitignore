@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/node,osx,sass
 
 ### Node ###
@@ -6,6 +5,9 @@
 logs
 *.log
 npm-debug.log*
+
+### Yarn
+yarn.lock
 
 # Runtime data
 pids
